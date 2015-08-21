@@ -55,6 +55,6 @@ class MemeTableViewController : UITableViewController, UITableViewDataSource, UI
     @IBAction func createMeme(sender: AnyObject) {
         
         let EditorController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditorViewConroller
-        self.presentViewController(EditorController, animated: true, completion: nil)
+        presentViewController(EditorController, animated: true, completion: nil)
     }
 }

@@ -29,7 +29,7 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
     
     func save(){
         let memedimage = generateMemedImage()
-        var meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image, memedImage: memedimage)
+        var meme = Meme(topT: topText.text!, bottomT: bottomText.text!, originalImage: imagePickerView.image, memedImage: memedimage)
         
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -74,13 +74,13 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
 
     @IBAction func pickImageFromAlbum(sender: AnyObject) {
