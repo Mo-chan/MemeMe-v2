@@ -18,8 +18,8 @@ class MemeCollectionViewController : UICollectionViewController, UICollectionVie
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-        let width = (self.view.frame.size.width - (2 * space)) / 3.0
-        let height = (self.view.frame.size.height - (2 * space)) / 3.0
+        let width = (view.frame.size.width - (2 * space)) / 3.0
+        let height = (view.frame.size.height - (2 * space)) / 3.0
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(width, height)
@@ -36,13 +36,13 @@ class MemeCollectionViewController : UICollectionViewController, UICollectionVie
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        let meme = self.memes[indexPath.row]
+        let meme = memes[indexPath.row]
         cell.MemeImageView?.image = meme.memedImage
         
         return cell
@@ -51,8 +51,8 @@ class MemeCollectionViewController : UICollectionViewController, UICollectionVie
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
         
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = self.memes[indexPath.row]
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        detailController.meme = memes[indexPath.row]
         navigationController!.pushViewController(detailController, animated: true)
         
     }
@@ -60,7 +60,7 @@ class MemeCollectionViewController : UICollectionViewController, UICollectionVie
     
     @IBAction func createMeme(sender: AnyObject) {
         
-        let EditorController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditorViewConroller
+        let EditorController = storyboard!.instantiateViewControllerWithIdentifier("MemeEditor") as! MemeEditorViewConroller
         presentViewController(EditorController, animated: true, completion: nil)
     }
     

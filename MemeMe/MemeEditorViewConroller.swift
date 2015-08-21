@@ -42,8 +42,8 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
         bottomToolbar.hidden = true
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
@@ -62,12 +62,12 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
         topText.defaultTextAttributes = memeTextAttributes
         topText.text = "TOP"
         topText.textAlignment = NSTextAlignment.Center
-        self.topText.delegate = self
+        topText.delegate = self
         //BOTTOM text configurations
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.text = "BOTTOM"
         bottomText.textAlignment = NSTextAlignment.Center
-        self.bottomText.delegate = self
+        bottomText.delegate = self
         shareButton.enabled = false
         
     }
@@ -156,7 +156,7 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
         bottomText.text = "BOTTOM"
         imagePickerView.image = nil
         shareButton.enabled = false
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func shareMeme(sender: AnyObject) {
