@@ -11,7 +11,7 @@ import UIKit
 class MemeTableViewController : UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
     var memes : [Meme]!
-    
+    var EditBool : Bool!
     @IBOutlet weak var newMeme: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -24,12 +24,24 @@ class MemeTableViewController : UITableViewController, UITableViewDataSource, UI
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
+        EditBool = false
+        tableView.setEditing(EditBool, animated: true)
         tableView.reloadData()
         
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
+    }
+
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.removeAtIndex(indexPath.row)
+        memes.removeAtIndex(indexPath.row)
+        tableView.reloadData()
+        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -48,8 +60,13 @@ class MemeTableViewController : UITableViewController, UITableViewDataSource, UI
         
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailController, animated: true)
+        navigationController!.pushViewController(detailController, animated: true)
         
+    }
+    
+    @IBAction func editMeme(sender: AnyObject) {
+        EditBool = !EditBool
+        tableView.setEditing(EditBool, animated: true)
     }
     
     @IBAction func createMeme(sender: AnyObject) {

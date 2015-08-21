@@ -46,6 +46,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="O1F-oZ-apf">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="DZq-kl-RHm">
+                            <connections>
+                                <action selector="editMeme:" destination="7In-oy-zaC" id="ikd-4H-uKW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rJh-Ki-LHW">
                             <connections>
                                 <action selector="createMeme:" destination="7In-oy-zaC" id="o2N-Dq-JFE"/>
