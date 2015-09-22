@@ -10,6 +10,8 @@
 	<string>MemeMe</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>8A7A937CB567E7236FA77B86B83D70BBC6E8BBEC</key>
+		<string>https://github.com/Mo-chan/MemeMe-v2.git</string>
 		<key>CAD908A3FDDD4837048FBB36617158ADD179FD79</key>
 		<string>https://github.com/Mo-chan/MemeMe-V1.git</string>
 	</dict>
@@ -17,15 +19,17 @@
 	<string>MemeMe.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CAD908A3FDDD4837048FBB36617158ADD179FD79</key>
+		<key>8A7A937CB567E7236FA77B86B83D70BBC6E8BBEC</key>
 		<string>../..</string>
+		<key>CAD908A3FDDD4837048FBB36617158ADD179FD79</key>
+		<string>../../../MemeMe</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Mo-chan/MemeMe-V1.git</string>
+	<string>https://github.com/Mo-chan/MemeMe-v2.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CAD908A3FDDD4837048FBB36617158ADD179FD79</string>
+	<string>8A7A937CB567E7236FA77B86B83D70BBC6E8BBEC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>CAD908A3FDDD4837048FBB36617158ADD179FD79</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MemeMe</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8A7A937CB567E7236FA77B86B83D70BBC6E8BBEC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MemeMe%20v2</string>
 		</dict>
 	</array>
 </dict>

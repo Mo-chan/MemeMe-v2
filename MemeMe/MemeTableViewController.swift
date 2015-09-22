@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeTableViewController : UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class MemeTableViewController : UITableViewController {
     
     var memes : [Meme]!
     var EditBool : Bool!
@@ -46,7 +46,7 @@ class MemeTableViewController : UITableViewController, UITableViewDataSource, UI
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell", forIndexPath : indexPath)
         let meme = memes[indexPath.row]
         
         // Set the name and image

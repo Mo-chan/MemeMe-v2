@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MemeCollectionViewController : UICollectionViewController, UICollectionViewDataSource {
+class MemeCollectionViewController : UICollectionViewController {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var memes : [Meme]!

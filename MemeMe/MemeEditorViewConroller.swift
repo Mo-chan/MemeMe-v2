@@ -29,7 +29,7 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
     
     func save(){
         let memedimage = generateMemedImage()
-        var meme = Meme(topT: topText.text!, bottomT: bottomText.text!, originalImage: imagePickerView.image, memedImage: memedimage)
+        let meme = Meme(topT: topText.text!, bottomT: bottomText.text!, originalImage: imagePickerView.image, memedImage: memedimage)
         
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -97,7 +97,7 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
             shareButton.enabled = true
@@ -164,7 +164,7 @@ class MemeEditorViewConroller: UIViewController,UIImagePickerControllerDelegate,
         let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         controller.completionWithItemsHandler = {
-            (activity: String!, completed: Bool, items: [AnyObject]!, error: NSError!) -> Void in
+            (activity: String?, completed: Bool, items: [AnyObject]?, error: NSError?) -> Void in
             if completed{
                 self.save()
                 self.dismissViewControllerAnimated(true, completion: nil)
