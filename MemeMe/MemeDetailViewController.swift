@@ -17,34 +17,34 @@ class MemeDetailViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.Plain, target: self, action: "deleteMeme")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MemeDetailViewController.deleteMeme))
         
     }
     
     func deleteMeme() {
-        let object = UIApplication.sharedApplication().delegate
+        let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
-        for var index = 0; index < appDelegate.memes.count; index++ {
+        for index in 0 ..< appDelegate.memes.count {
             if appDelegate.memes[index].memedImage == meme.memedImage {
-                appDelegate.memes.removeAtIndex(index)
+                appDelegate.memes.remove(at: index)
                 if let navigationController = self.navigationController {
-                    navigationController.popToRootViewControllerAnimated(true)
+                    navigationController.popToRootViewController(animated: true)
                 }
             }
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tabBarController?.tabBar.hidden = true
+        tabBarController?.tabBar.isHidden = true
         
         imageView!.image = meme.memedImage
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.isHidden = false
     }
 
     
